@@ -6,6 +6,7 @@ option go_package = "./pkg/product/pb";
 
 service ProductService {
     rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse) {}
+    rpc FindOne(FindOneRequest) returns (FindOneResponse) {}
 }
 
 // Create Product
@@ -20,4 +21,23 @@ message CreateProductResponse {
     int64 status = 1;
     string error = 2;
     int64 id = 3;
+}
+
+// Find One
+message FindOneRequest{
+    int64 id = 1;
+}
+
+message FindOneResponse{
+    int64 status = 1;
+    string error = 2;
+    FindOneData data = 3;
+}
+
+message FindOneData{
+    int64 id = 1;
+    string name = 2;
+    string sku = 3;
+    int64 stock = 4;
+    int64 price = 5;
 }
