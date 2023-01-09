@@ -21,4 +21,6 @@ func main() {
 	authSvc := *auth.RegisterRoutes(r, &c)
 	product.RegisterRoutes(r, &c, &authSvc)
 	order.RegisterRoutes(r, &c, &authSvc)
+
+	r.Run(c.Port)
 }
